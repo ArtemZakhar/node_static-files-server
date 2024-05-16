@@ -14,9 +14,10 @@ function createServer() {
     }
 
     fs.readFile(fullPath, { encoding: 'utf8' }, (err, data) => {
+      res.setHeader('Content-Type', 'text/plain');
+
       if (err) {
         res.statusCode = 404;
-        res.setHeader('Content-Type', 'text/plain');
         res.end('request should starts with "file"');
 
         return;
